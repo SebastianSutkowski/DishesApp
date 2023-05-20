@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DishesApp", "DishesApp\DishesApp.csproj", "{83E3C68B-48E7-4C1F-9070-9BDC37BE063F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83E3C68B-48E7-4C1F-9070-9BDC37BE063F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83E3C68B-48E7-4C1F-9070-9BDC37BE063F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83E3C68B-48E7-4C1F-9070-9BDC37BE063F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83E3C68B-48E7-4C1F-9070-9BDC37BE063F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83AA9EB8-1C33-410F-AC63-66AC1ADC5A04}
+	EndGlobalSection
+EndGlobal
