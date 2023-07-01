@@ -15,10 +15,22 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.RestApi);
 builder.Services.AddDbContext<DishesAppDbContext>(
     option => option.UseSqlServer(builder.Configuration.GetConnectionString("DishesAppConnectionString"))
     ) ;
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
+builder.Services.AddCors(
+    options =>
+    {
+        options.AddPolicy("AllowAll", builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+    }
+    );
 //endpoint methods
 builder.Services.AddScoped<IGetMethods, GetMethods>();
 builder.Services.AddScoped<IPostMethods, PostMethods>();
@@ -34,6 +46,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseCors("AllowAll");
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<DishesAppDbContext>();
